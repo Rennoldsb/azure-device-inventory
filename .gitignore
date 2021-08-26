@@ -10,6 +10,7 @@
 
 # production
 /build
+authConfig.js
 
 # misc
 .DS_Store

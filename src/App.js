@@ -5,14 +5,17 @@ import {
 } from '@azure/msal-react';
 import { SignInButton } from './components/SignInButton';
 import { SignOutButton } from './components/SignOutButton';
-import GetData from './components/GetMe';
+import GetDeviceData from './components/GetDeviceData';
+import { GetToken } from './helpers/GetToken';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export function App() {
   return (
     <React.Fragment>
       <AuthenticatedTemplate>
+        <GetToken />
         <p>Signed In!</p>
-        <GetData apiEndpoint='https://graph.microsoft.com/v1.0/me' />
+        <GetDeviceData />
         <SignOutButton />
       </AuthenticatedTemplate>
       <UnauthenticatedTemplate>

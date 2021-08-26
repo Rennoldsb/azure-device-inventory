@@ -3,9 +3,12 @@ import { useMsal } from '@azure/msal-react';
 
 function handleLogout(instance) {
   localStorage.removeItem('msGraphToken');
-  instance.logoutPopup().catch((e) => {
-    console.error(e);
-  });
+  instance
+    .logoutPopup()
+    .then(sessionStorage.removeItem('msGraphToken'))
+    .catch((e) => {
+      console.error(e);
+    });
 }
 
 /**
